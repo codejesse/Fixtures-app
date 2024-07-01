@@ -73,7 +73,6 @@ export default function FixturesList() {
                     <h1 className="font-bold text-[25px]">
                       {record.scoreA} : {record.scoreB}
                     </h1>
-                    <p className="text-[12px] text-center">16:30</p>
                     <CountdownTimer
                       date={record.date}
                       timerStarted={record.timerStarted}
