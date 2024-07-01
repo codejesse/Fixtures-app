@@ -47,14 +47,13 @@ export default function Fixture() {
       return { ...prev, ...value };
     });
   }
-  
+
   async function onSubmit(e) {
     e.preventDefault();
     const person = { ...form };
     try {
       let response;
       if (isNew) {
-        // if we are adding a new record we will POST to /record.
         response = await fetch("http://localhost:5050/record", {
           method: "POST",
           headers: {
