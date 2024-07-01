@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function Fixture() {
@@ -43,14 +42,12 @@ export default function Fixture() {
     return;
   }, [params.id, navigate]);
 
-  // These methods will update the state properties.
   function updateForm(value) {
     return setForm((prev) => {
       return { ...prev, ...value };
     });
   }
-
-  // This function will handle the submission.
+  
   async function onSubmit(e) {
     e.preventDefault();
     const person = { ...form };
