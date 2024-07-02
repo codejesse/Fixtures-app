@@ -39,7 +39,7 @@ export default function MatchManager() {
   // This method fetches the records from the database.
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`http://localhost:5050/record/`);
+      const response = await fetch(`https://fixtures-app-api.vercel.app/record/`);
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
         console.error(message);
@@ -54,7 +54,7 @@ export default function MatchManager() {
 
   // This method will delete a record
   async function deleteRecord(id) {
-    await fetch(`http://localhost:5050/record/${id}`, {
+    await fetch(`https://fixtures-app-api.vercel.app/record/${id}`, {
       method: "DELETE",
     });
     const newRecords = records.filter((el) => el._id !== id);
@@ -62,7 +62,7 @@ export default function MatchManager() {
   }
 
   async function startTimer(id) {
-    await fetch(`https://localhost:5050/record/${id}/start-timer`, {
+    await fetch(`https://fixtures-app-api.vercel.app/record/${id}/start-timer`, {
       method: "PATCH", //RED FLAG lol
     });
     const updatedMatches = records.map((m) =>
