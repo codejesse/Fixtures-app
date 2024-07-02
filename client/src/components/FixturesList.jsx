@@ -4,6 +4,14 @@ import CountdownTimer from "./CountdownTimer";
 export default function FixturesList() {
   const [records, setRecords] = useState([]);
 
+  //function to refresh window after 15secs
+  //TO DO: use sockets to initiate a reload when a score change is made
+  useEffect(() => {
+    setTimeout(() => {
+      window.location.reload();
+    }, 30000);
+  }, []);
+
   // This method fetches the records from the database.
   useEffect(() => {
     async function getRecords() {
@@ -64,7 +72,7 @@ export default function FixturesList() {
                   <div className="flex flex-col lg:flex-row sm:flex-col p-4">
                     <img
                       className="h-10 w-10 m-auto lg:w-10 lg:m-0"
-                      src="https://scontent.fphc2-2.fna.fbcdn.net/v/t39.30808-6/449074990_1406447256709374_7250867874701459372_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFaZUOb0B_PrEI5QUCQ3CGIN-lZr-0lAaE36Vmv7SUBoVo0PagBnqra8LMQOnSrz-V-MyT6wYH54vV0bglerTUd&_nc_ohc=MyHUrhWj2R4Q7kNvgHciSpI&_nc_zt=23&_nc_ht=scontent.fphc2-2.fna&oh=00_AYAmTz5Hux5TxU4rGC-K-zAZGoIACbPBJuc6dPanWDnvng&oe=6683C722"
+                      src="/SEES.jpg"
                       alt=""
                     />
                     <h2 className="text-center">{record.teamA}</h2>
@@ -81,7 +89,7 @@ export default function FixturesList() {
                   <div className="flex flex-col lg:flex-row sm:flex-col p-4">
                     <img
                       className="h-10 w-10 m-auto lg:w-10 lg:m-0"
-                      src="https://scontent.fphc2-2.fna.fbcdn.net/v/t39.30808-6/449074990_1406447256709374_7250867874701459372_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFaZUOb0B_PrEI5QUCQ3CGIN-lZr-0lAaE36Vmv7SUBoVo0PagBnqra8LMQOnSrz-V-MyT6wYH54vV0bglerTUd&_nc_ohc=MyHUrhWj2R4Q7kNvgHciSpI&_nc_zt=23&_nc_ht=scontent.fphc2-2.fna&oh=00_AYAmTz5Hux5TxU4rGC-K-zAZGoIACbPBJuc6dPanWDnvng&oe=6683C722"
+                      src="/SEES.jpg"
                       alt=""
                     />
                     <h2 className="text-center">{record.teamB}</h2>
