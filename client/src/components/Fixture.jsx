@@ -63,13 +63,16 @@ export default function Fixture() {
         });
       } else {
         // if we are updating a record we will PATCH to /record/:id.
-        response = await fetch(`https://fixtures-app-api.vercel.app/record/${params.id}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(person),
-        });
+        response = await fetch(
+          `https://fixtures-app-api.vercel.app/record/${params.id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(person),
+          }
+        );
       }
 
       if (!response.ok) {
@@ -104,8 +107,8 @@ export default function Fixture() {
               Match info
             </h2>
             <p className="mt-1 text-sm leading-6 text-slate-600">
-              This information will be displayed publicly so be careful what you
-              share.
+              Create your match details, you can also update the scores as the
+              game goes on🔥.
             </p>
           </div>
 
