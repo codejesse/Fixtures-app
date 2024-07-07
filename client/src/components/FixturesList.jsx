@@ -6,11 +6,11 @@ export default function FixturesList() {
 
   //function to refresh window after 15secs
   //TO DO: use sockets to initiate a reload when a score change is made
-  useEffect(() => {
-    setTimeout(() => {
-      window.location.reload();
-    }, 60000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     window.location.reload();
+  //   }, 60000);
+  // }, []);
 
   // This method fetches the records from the database.
   useEffect(() => {
