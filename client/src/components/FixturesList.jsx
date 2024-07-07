@@ -9,7 +9,7 @@ export default function FixturesList() {
   useEffect(() => {
     setTimeout(() => {
       window.location.reload();
-    }, 40000);
+    }, 60000);
   }, []);
 
   // This method fetches the records from the database.
