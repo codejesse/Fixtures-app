@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function Fixture() {
@@ -11,7 +11,7 @@ export default function Fixture() {
     status: "scheduled",
     scoreA: "",
     scoreB: "",
-    timerStarted: false,
+    timerStarted: true,
   });
   const [isNew, setIsNew] = useState(true);
   const params = useParams();
@@ -94,6 +94,7 @@ export default function Fixture() {
   }
 
   // This following section will display the form that takes the input from the user.
+  console.log(form.teamA)
   return (
     <>
       <h3 className="text-lg font-semibold p-4">Create/Update Match details</h3>

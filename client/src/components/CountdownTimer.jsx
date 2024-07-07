@@ -34,12 +34,17 @@ function CountdownTimer({ date, timerStarted }) {
     return () => clearInterval(timer);
   }, [date, timerStarted]);
 
-
   return (
     <div>
       {timerStarted ? (
         <div>
-          {timeLeft.minutes}:{timeLeft.seconds}
+          {timeLeft.minutes === 0 && timeLeft.seconds === 0 ? (
+            "Final time"
+          ) : (
+            <div>
+              {timeLeft.minutes}:{timeLeft.seconds}
+            </div>
+          )}
         </div>
       ) : (
         <div className="text-[12px]">{date}</div>

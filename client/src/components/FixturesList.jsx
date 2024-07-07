@@ -12,10 +12,16 @@ export default function FixturesList() {
   //   }, 60000);
   // }, []);
 
+  const handleRefresh = () => {
+    window.location.reload();
+  };
+
   // This method fetches the records from the database.
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`https://fixtures-app-api.vercel.app/record`);
+      const response = await fetch(
+        `https://fixtures-app-api.vercel.app/record`
+      );
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
         console.error(message);
@@ -66,6 +72,7 @@ export default function FixturesList() {
           </div>
         ) : (
           <div>
+            <button className="border py-2 px-4 rounded-full" onClick={handleRefresh}>&#8635; Refresh to update</button>
             {records.map((record) => {
               return (
                 <div className="border rounded-lg mt-2 grid grid-cols-3">
