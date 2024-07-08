@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import CountdownTimer from "./CountdownTimer";
+import { io } from "socket.io-client";
+
+const socket = io("/");
 
 export default function FixturesList() {
   const [records, setRecords] = useState([]);
@@ -31,6 +34,11 @@ export default function FixturesList() {
       setRecords(records);
     }
     getRecords();
+    socket.on("updateMatches", getRecords);
+
+    return () => {
+      socket.off("updateMatches", getRecords);
+    };
     return;
   }, [records.length]);
 
@@ -72,7 +80,12 @@ export default function FixturesList() {
           </div>
         ) : (
           <div>
-            <button className="border py-2 px-4 rounded-full" onClick={handleRefresh}>&#8635; Refresh to update</button>
+            <button
+              className="border py-2 px-4 rounded-full"
+              onClick={handleRefresh}
+            >
+              &#8635; Refresh to update
+            </button>
             {records.map((record) => {
               return (
                 <div className="border rounded-lg mt-2 grid grid-cols-3">

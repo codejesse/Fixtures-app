@@ -1,6 +1,7 @@
 import express from "express";
 import db from "../db/connection.js";
 import { ObjectId } from "mongodb";
+import { io } from "../server.js";
 
 // router is an instance of the express router.
 // We use it to define our routes.
@@ -12,7 +13,7 @@ router.get("/", async (req, res) => {
   let collection = await db.collection("records");
   let results = await collection.find({}).toArray();
   res.send(results).status(200);
-  res.json("Working!!")
+  res.json("Working!!");
 });
 
 // This section will help you get a single record by id
@@ -40,6 +41,7 @@ router.post("/", async (req, res) => {
     let collection = await db.collection("records");
     let result = await collection.insertOne(newDocument);
     res.send(result).status(204);
+    io.emit("updateMatches");
   } catch (err) {
     console.error(err);
     res.status(500).send("Error creating match");
@@ -79,6 +81,7 @@ router.patch("/:id/start-timer", async (req, res) => {
     { timerStarted: true },
     { new: true }
   );
+  io.emit("updateMatches");
   res.send(result).status(200);
 });
 
@@ -91,10 +94,18 @@ router.delete("/:id", async (req, res) => {
     let result = await collection.deleteOne(query);
 
     res.send(result).status(200);
+    io.emit("updateMatches");
   } catch (err) {
     console.error(err);
     res.status(500).send("Error deleting match");
   }
+});
+
+io.on("connection", (socket) => {
+  console.log("a user connected");
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
 });
 
 export default router;

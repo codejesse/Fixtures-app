@@ -23,7 +23,7 @@ export default function Fixture() {
       if (!id) return;
       setIsNew(false);
       const response = await fetch(
-        `http://localhost:5050/record/${params.id.toString()}`
+        `https://fixtures-app-api.vercel.app/record/${params.id.toString()}`
       );
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
@@ -94,7 +94,6 @@ export default function Fixture() {
   }
 
   // This following section will display the form that takes the input from the user.
-  console.log(form.teamA)
   return (
     <>
       <h3 className="text-lg font-semibold p-4">Create/Update Match details</h3>

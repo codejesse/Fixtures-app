@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { io } from "socket.io-client";
+
+const socket = io('/');
 
 const Match = (props) => (
   <div className="border bg-white">
@@ -49,6 +52,11 @@ export default function MatchManager() {
       setRecords(records);
     }
     getRecords();
+    socket.on('updateMatches', getRecords);
+
+    return () => {
+      socket.off('updateMatches', getRecords);
+    };
     return;
   }, [records.length]);
 
