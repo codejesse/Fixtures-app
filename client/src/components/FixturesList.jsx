@@ -101,10 +101,10 @@ export default function FixturesList() {
                     <h1 className="font-bold text-[25px]">
                       {record.scoreA} : {record.scoreB}
                     </h1>
-                    <CountdownTimer
+                    {/* <CountdownTimer
                       date={record.date}
                       timerStarted={record.timerStarted}
-                    />
+                    /> */}
                   </div>
                   <div className="flex flex-col lg:flex-row sm:flex-col p-4">
                     <img
