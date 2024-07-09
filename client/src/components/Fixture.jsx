@@ -223,60 +223,6 @@ export default function Fixture() {
               </div>
             </div>
             {/* TO DO: work on a selection for switching the timeStarted state */}
-            <div className="hidden">
-              <fieldset className="mt-4">
-                <legend className="sr-only">Position Options</legend>
-                <div className="space-y-4 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
-                  <div className="flex items-center">
-                    <input
-                      id="positionIntern"
-                      name="positionOptions"
-                      type="radio"
-                      value="Intern"
-                      className="h-4 w-4 border-slate-300 text-slate-600 focus:ring-slate-600 cursor-pointer"
-                      checked={form.level === "Intern"}
-                      onChange={(e) => updateForm({ level: e.target.value })}
-                    />
-                    <label
-                      htmlFor="positionIntern"
-                      className="ml-3 block text-sm font-medium leading-6 text-slate-900 mr-4"
-                    >
-                      Intern
-                    </label>
-                    <input
-                      id="positionJunior"
-                      name="positionOptions"
-                      type="radio"
-                      value="Junior"
-                      className="h-4 w-4 border-slate-300 text-slate-600 focus:ring-slate-600 cursor-pointer"
-                      checked={form.level === "Junior"}
-                      onChange={(e) => updateForm({ level: e.target.value })}
-                    />
-                    <label
-                      htmlFor="positionJunior"
-                      className="ml-3 block text-sm font-medium leading-6 text-slate-900 mr-4"
-                    >
-                      Junior
-                    </label>
-                    <input
-                      id="positionSenior"
-                      name="positionOptions"
-                      type="radio"
-                      value="Senior"
-                      className="h-4 w-4 border-slate-300 text-slate-600 focus:ring-slate-600 cursor-pointer"
-                      checked={form.level === "Senior"}
-                      onChange={(e) => updateForm({ level: e.target.value })}
-                    />
-                    <label
-                      htmlFor="positionSenior"
-                      className="ml-3 block text-sm font-medium leading-6 text-slate-900 mr-4"
-                    >
-                      Senior
-                    </label>
-                  </div>
-                </div>
-              </fieldset>
-            </div>
           </div>
         </div>
         <input

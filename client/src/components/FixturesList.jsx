@@ -95,7 +95,9 @@ export default function FixturesList() {
                       src="/SEES.jpg"
                       alt=""
                     />
-                    <h2 className="flex flex-row text-center text-ellipsis overflow-hidden ...">{record.teamA}</h2>
+                    <h2 className="flex flex-row text-center text-ellipsis overflow-hidden ...">
+                      {record.teamA}
+                    </h2>
                   </div>
                   <div className="flex flex-col p-4">
                     <h1 className="font-bold text-[25px]">
@@ -112,7 +114,9 @@ export default function FixturesList() {
                       src="/SEES.jpg"
                       alt=""
                     />
-                    <h2 className="flex flex-row text-center text-ellipsis overflow-hidden ...">{record.teamB}</h2>
+                    <h2 className="flex flex-row text-center text-ellipsis overflow-hidden ...">
+                      {record.teamB}
+                    </h2>
                   </div>
                 </div>
               );
